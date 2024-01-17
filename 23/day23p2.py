@@ -91,13 +91,13 @@ while len(Q) > 0:
                 intersections += 1
         heappush(Q, (-intersections, cube))
 
-result = 0
+result = 9999999999
 max_points.sort(key=lambda x: x[0], reverse=True)
 max_intersections = max_points[0][0]
 for intersections, point in max_points:
     if intersections != max_intersections:
         break
     dist = distance(point, (0, 0, 0))
-    result = max(dist, result)
+    result = min(dist, result)
 
 print(result)
